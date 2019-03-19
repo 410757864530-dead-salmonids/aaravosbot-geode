@@ -1,0 +1,11 @@
+# Ignore RubyMine workspace files
+.idea
+
+# Ignore lockfile
+Gemfile.lock
+
+# Ignore database
+db/data.db
+
+# Ignore dev crystals
+app/dev/*.rb
