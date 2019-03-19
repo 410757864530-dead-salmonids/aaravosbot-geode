@@ -4,7 +4,7 @@ AaravosBot is the custom server bot for the [Dragon Prince Discord server](https
 It is written using the [discordrb](https://github.com/meew0/discordrb) library and 
 my [Geode](https://github.com/410757864530-dead-salmonids/geode) bot framework.
 
-The functionality of the bot is split across different "crystals", the modules of a bot made with the Cluster framework,
+The functionality of the bot is split across different "crystals", the modules of a bot made with the Geode framework,
 which can be found in the `app/main` folder. 
 
 Note that this code only exists here for sake of being open source; due to all the server-specific code, you cannot host 
