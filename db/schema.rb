@@ -15,5 +15,13 @@ module Schema
       String :message, :size=>255
       foreign_key :chat_user_id, :chat_users
     end
+
+    db.create_table?(:assignable_roles) do
+      primary_key :id
+      String :key, :size=>255
+      Integer :role_id
+      String :group, :default=>"No Group", :size=>255
+      String :desc, :size=>255
+    end
   end
 end
