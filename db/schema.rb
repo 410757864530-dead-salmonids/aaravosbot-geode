@@ -23,5 +23,17 @@ module Schema
       String :group, :default=>"No Group", :size=>255
       String :desc, :size=>255
     end
+
+    db.create_table?(:hug_users) do
+      primary_key :id
+      Integer :given, :default=>0
+      Integer :received, :default=>0
+    end
+
+    db.create_table?(:tart_users) do
+      primary_key :id
+      Integer :given, :default=>0
+      Integer :received, :default=>0
+    end
   end
 end

@@ -1,5 +1,7 @@
 require 'rufus-scheduler'
 ENV['TZ'] = 'GMT'
+require 'sequel'
+Sequel.extension :inflector
 
 # Module containing constants that multiple crystals need access to
 module Constants
@@ -32,8 +34,8 @@ module Convenience
   # @param  [String]  str the string to pluralize
   # @return [String]  singular form (i.e. 1 squid) if int is 1, plural form (8 squids) otherwise
   def plural(int, str)
-    return "#{int} #{str}s" unless int == 1
-    "#{int} #{str}"
+    return "#{int} #{str.pluralize}" unless int == 1
+    "#{int} #{str.singularize}"
   end
   alias_method(:pl, :plural)
 end
