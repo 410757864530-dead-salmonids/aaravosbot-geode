@@ -37,7 +37,7 @@ module Bot::InformationCommands
     args[0] ||= event.user.id
 
     # If user is valid, send embed containing all necessary information
-    if (user = SERVER.get_user(args.join(' '))
+    if (user = SERVER.get_user(args.join(' ')))
       event.send_embed do |embed|
         embed.author = {
             name:     "USER: #{user.display_name} (#{user.distinct})",
