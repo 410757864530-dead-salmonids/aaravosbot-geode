@@ -70,7 +70,7 @@ module Bot::Quotes
         permission: :moderator,
         info: ['Displays or sets the number of cameras required to quote a message in <#506866876417048586>.'],
         usage: [
-            [nil, 'Displays the current number of cameras required to quote a message.']
+            [nil, 'Displays the current number of cameras required to quote a message.'],
             ['<number>', 'Sets the number of cameras required to quote to the specified value.']
         ]
     )
