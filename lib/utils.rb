@@ -140,6 +140,31 @@ class Discordrb::Server
   end
 end
 
+# Commands module from discordrb
+module Discordrb::Commands
+  # Bucket class from discordrb
+  class Bucket
+    # Resets the number of requests by a thing
+    def reset(thing)
+      # Resolves key and deletes its entry in the bucket hash
+      key = resolve_key thing
+      @bucket.delete(key)
+    end
+  end
+
+  # RateLimiter module from discordrb
+  module RateLimiter
+    # Resets the number of requests by a thing
+    def reset(key, thing)
+      # Do nothing unless the bucket actually exists
+      if @buckets && @buckets[key]
+        # Execute reset method
+        @buckets[:key].reset(thing)
+      end
+    end
+  end
+end
+
 # Message class from discordrb
 class Discordrb::Message
   # Reaction control buttons, in order

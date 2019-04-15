@@ -24,16 +24,43 @@ module Schema
       String :desc, :size=>255
     end
 
+    db.create_table?(:tart_users) do
+      primary_key :id
+      Integer :given, :default=>0
+      Integer :received, :default=>0
+    end
+
     db.create_table?(:hug_users) do
       primary_key :id
       Integer :given, :default=>0
       Integer :received, :default=>0
     end
 
-    db.create_table?(:tart_users) do
+    db.create_table?(:muted_users) do
       primary_key :id
-      Integer :given, :default=>0
-      Integer :received, :default=>0
+      DateTime :end_time
+    end
+
+    db.create_table?(:raid_config) do
+      primary_key :id
+      Integer :users
+      Integer :seconds
+    end
+
+    db.create_table?(:flood_config) do
+      primary_key :id
+      Integer :messages
+      Integer :seconds
+    end
+
+    db.create_table?(:quoted_messages) do
+      primary_key :id
+      Integer :channel_id
+    end
+
+    db.create_table?(:quotes_config) do
+      primary_key :id
+      Integer :cameras
     end
   end
 end
