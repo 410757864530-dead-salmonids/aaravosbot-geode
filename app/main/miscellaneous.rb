@@ -25,12 +25,12 @@ module Bot::Miscellaneous
     voice_text_chats = YAML.load_data! "#{ENV['DATA_PATH']}/voice_text_chats.yml"
 
     # Delete user's overwrites in each of the voice text channels
-    VOICE_TEXT_CHATS.each_value { |id| Bot::BOT.channel(id).delete_overwrite(event.user.id) }
+    voice_text_chats.each_value { |id| Bot::BOT.channel(id).delete_overwrite(event.user.id) }
 
     # If user has joined a voice channel that has a corresponding text channel, define
     # overwrite for its text channel and respond to user
-    if event.channel && VOICE_TEXT_CHATS[event.channel.id]
-      text_channel = Bot::BOT.channel(VOICE_TEXT_CHATS[event.channel.id])
+    if event.channel && voice_text_chats[event.channel.id]
+      text_channel = Bot::BOT.channel(voice_test_chats[event.channel.id])
       text_channel.define_overwrite(event.user, 1024, 0)
       text_channel.send_temporary_message(
           <<~MESSAGE.strip,
