@@ -13,15 +13,22 @@ module Bot::Quotes
   STORYBOOK_ID = 506866876417048586
 
   # Set cameras needed to quote message
-  command :asbcams do |event, arg = QuotesConfig.instance.cameras|
-    # Breaks unless user is moderator
+  command :asbcams do |event, arg|
+    # Break unless user is moderator
     break unless event.user.has_permission?(:moderator)
 
-    # Set cams needed to quote, save to database and respond to user
     config = QuotesConfig.instance
-    config.cameras = arg.to_i
-    config.save
-    event << "**Set number of camera reactions required to quote a message to #{arg.to_i}.**"
+
+    # If argument is given, set cams needed to quote, save to database and respond to user
+    if arg
+      config.cameras = arg.to_i
+      config.save
+      event << "**Set number of camera reactions required to quote a message to #{arg.to_i}.**"
+
+    # Otherwise, respond with current cams needed to quote
+    else
+      event << "**#{pl(config.cameras, 'cameras')}** are needed to quote a message."
+    end
   end
 
   # Quote a message when it has reached cam count
@@ -59,10 +66,13 @@ module Bot::Quotes
     # +asbcams
     command_info(
         name: :asbcams,
-        blurb: 'Sets cameras needed for a quote.',
+        blurb: 'Displays/sets cameras needed for a quote.',
         permission: :moderator,
-        info: ['Sets the number of cameras required to quote a message in <#506866876417048586>.'],
-        usage: [['<number>', 'Sets the number of cameras required to quote to the specified value. Defaults to 5.']]
+        info: ['Displays or sets the number of cameras required to quote a message in <#506866876417048586>.'],
+        usage: [
+            [nil, 'Displays the current number of cameras required to quote a message.']
+            ['<number>', 'Sets the number of cameras required to quote to the specified value.']
+        ]
     )
   end
 end

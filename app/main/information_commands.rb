@@ -19,12 +19,12 @@ module Bot::InformationCommands
         AaravosBot is the Dragon Prince server's custom bot.
         He was initially written for the functionality of <#506866876417048586>, but has since evolved into much more.
         He is coded using the [Ruby](https://www.ruby-lang.org/en/) language, using the [discordrb](https://github.com/meew0/discordrb) library and the [Geode](https://github.com/410757864530-dead-salmonids/geode) bot framework.
-        He is hosted on a [Scaleway](https://www.scaleway.com/) START1-S cloud server.
+        He is hosted on a [Scaleway](https://www.scaleway.com/) DEV1-M cloud server.
         His icon was made lovingly by <@139198446799290369>.
         Source code can be found [here](https://github.com/410757864530-dead-salmonids/aaravosbot)
         
         **Note from the Developer:** I need money to pay for the server AaravosBot runs on -- computing power isn't free!
-        If you enjoy this server or AaravosBot's functions, **please consider donating to my [ko-fi](https://ko-fi.com/hecksalmonids).** Thank you!
+        If you enjoy this server or AaravosBot's functions, **please consider donating to my [ko-fi](https://ko-fi.com/hecksalmonids).** Any amount helps, thank you!
       DESC
       embed.footer = {text: '"How may I serve you?" • Created on October 30, 2018'}
       embed.color = 0xFFD700
