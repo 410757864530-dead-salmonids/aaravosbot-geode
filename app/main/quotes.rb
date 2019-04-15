@@ -7,6 +7,7 @@ module Bot::Quotes
   extend Discordrb::EventContainer
   include Bot::Models
 
+  extend Convenience
   include Constants
 
   # #aaravos_storybook ID
