@@ -30,7 +30,7 @@ module Bot::Miscellaneous
     # If user has joined a voice channel that has a corresponding text channel, define
     # overwrite for its text channel and respond to user
     if event.channel && voice_text_chats[event.channel.id]
-      text_channel = Bot::BOT.channel(voice_test_chats[event.channel.id])
+      text_channel = Bot::BOT.channel(voice_text_chats[event.channel.id])
       text_channel.define_overwrite(event.user, 1024, 0)
       text_channel.send_temporary_message(
           <<~MESSAGE.strip,
