@@ -502,7 +502,7 @@ module Bot::Moderation
       if raid_bucket.rate_limited?(:join)
         raid_mode_active = true
         raid_bucket.reset(:join)
-        Bot::BOT.send_message(MOD_LOG_ID, '@ here **Raid protections have been activated.** New joins will be muted.')
+        Bot::BOT.send_message(MOD_LOG_ID, '@here **Raid protections have been activated.** New joins will be muted.')
       end
     end
   end
