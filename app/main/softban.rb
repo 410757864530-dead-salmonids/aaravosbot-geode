@@ -118,9 +118,11 @@ module Bot::Softban
       await_event = event.message.await!
       msgs.push(await_event.message)
       reason = await_event.message.content
-      reason_text = "\n**Reason:** #{reason}"
     end
-    sleep 0.05 until reason_text
+    sleep 0.05 until reason
+
+    reason_text = "\n**Reason:** #{reason}"
+    shortened_reason = reason.length > 512 ? (reason[0..508] + '...' : reason)
 
     end_time = Time.now + time
     softban_user = SoftbanUser.create(
@@ -152,7 +154,7 @@ module Bot::Softban
     # Ban user
     SERVER.ban(
         user, ban_days,
-        reason: reason
+        reason: shortened_reason
     )
 
     # Schedule Rufus job to unban user
