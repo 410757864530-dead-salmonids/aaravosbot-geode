@@ -65,7 +65,7 @@ module Bot::WordFilter
             name:     'Filter: All Filtered Words',
             icon_url: 'http://i63.tinypic.com/2w7k9b6.jpg'
         }
-        embed.description = FilteredWord.map(:id, :word).map { |id, w| "**#{id}.** `#{w}`" }.join("\n")
+        embed.description = FilteredWord.map([:id, :word]).map { |id, w| "**#{id}.** `#{w}`" }.join("\n")
         embed.footer = {text: 'Use +filter to add/remove/list filtered words.'}
         embed.color = 0xFFD700
       end
