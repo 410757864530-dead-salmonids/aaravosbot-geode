@@ -122,7 +122,7 @@ module Bot::Softban
     sleep 0.05 until reason
 
     reason_text = "\n**Reason:** #{reason}"
-    shortened_reason = reason.length > 512 ? (reason[0..508] + '...' : reason)
+    shortened_reason = reason.length > 512 ? (reason[0..508] + '...') : reason
 
     end_time = Time.now + time
     softban_user = SoftbanUser.create(
