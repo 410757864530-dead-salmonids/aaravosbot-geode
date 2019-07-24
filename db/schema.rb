@@ -62,5 +62,22 @@ module Schema
       primary_key :id
       Integer :cameras
     end
+
+    db.create_table?(:softban_users) do
+      primary_key :id
+      DateTime :end_time
+    end
+
+    db.create_table?(:filtered_words) do
+      primary_key :id
+      String :word, :size=>255
+    end
+
+    db.create_table?(:word_filter_config) do
+      primary_key :id
+      String :message, :size=>255
+      TrueClass :dms
+      Integer :timeout
+    end
   end
 end
